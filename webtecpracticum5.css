@@ -1,0 +1,280 @@
+
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(to right, #064b8e, #168bd2);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    position: relative;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 17px;
+}
+
+/* Objective Section */
+.objective {
+    background-color: white;
+    width: 85%;
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 25px;
+    border-left: 5px solid #168bd2;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.objective h2 {
+    color: #064b8e;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.objective p {
+    text-align: justify;
+    line-height: 1.8;
+}
+
+/* Responsive Flexbox Navigation */
+nav {
+    background-color: #03396c;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+    flex-wrap: wrap;
+
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Navigation Links */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+nav a:hover {
+    color: #ffdd57;
+    background-color: #0878c9;
+    border-radius: 5px;
+}
+
+/* Main Container */
+.container {
+    background-color: white;
+    width: 85%;
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.container h2 {
+    color: #064b8e;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Feature Cards */
+.card {
+    background-color: #e8f3ff;
+    width: 30%;
+    min-width: 200px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #b5d8f5;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.card h3 {
+    color: #064b8e;
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    background-color: #d2e9ff;
+    transform: translateY(-5px);
+}
+
+/* Form Styling */
+form {
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+}
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #168bd2;
+    border-color: #168bd2;
+}
+
+/* Radio Buttons and Checkboxes */
+.option {
+    margin-top: 8px;
+}
+
+.option input {
+    width: auto;
+    margin: 5px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #0878c9;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #034b85;
+}
+
+.reset {
+    background-color: #777;
+}
+
+.reset:hover {
+    background-color: #444;
+}
+
+/* Contact Section */
+#contact p {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #03396c;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Fixed Position Example */
+body::after {
+    content: "Student Guidance";
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #168bd2;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 22px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    .container {
+        width: 95%;
+        padding: 18px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    form {
+        width: 100%;
+    }
+}
+
+/* Responsive Navigation for Mobile */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .objective {
+        width: 95%;
+    }
+}

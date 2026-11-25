@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Image Gallery</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Notification container (toasts appear here) -->
+    <div id="toast-container" aria-live="polite"></div>
+
+    <!-- Header with AI network animation -->
+    <header>
+        <div class="ai-bg" id="ai-bg"></div>
+        <span class="ai-badge">AI-POWERED</span>
+        <h1>Logistics Management Gallery</h1>
+        <p>Explore Our Transportation and Delivery Services</p>
+        <p class="ai-tagline"><span id="typed"></span><span class="cursor">|</span></p>
+    </header>
+
+    <!-- Objective -->
+    <section class="objective">
+        <h2>Objectives</h2>
+        <ul>
+            <li>
+                To create an industry-specific image gallery using CSS Grid,
+                with responsive columns, consistent image dimensions,
+                and meaningful captions. The gallery displays logistics,
+                transportation, warehousing, shipping, and delivery
+                services in an attractive and user-friendly layout.
+            </li>
+            <li>
+                To develop an industry-oriented responsive webpage that
+                adapts to desktop, tablet, and mobile screen sizes
+                using CSS media queries.
+            </li>
+            <li>
+                To add meaningful animations that respond to user
+                interactions such as button clicks, information cards,
+                notifications, and opening or closing content sections.
+            </li>
+            <li>
+                To develop dynamic webpage interactions that add, modify,
+                display and remove industry-specific information using
+                DOM manipulation without reloading the webpage.
+            </li>
+            <li>
+                To develop an industry-specific booking form with
+                appropriate input constraints and validation, showing
+                clear error messages for invalid inputs and a success
+                message when the form is submitted successfully.
+            </li>
+            <li>
+                To develop an API-integrated webpage that retrieves
+                industry-specific information from an endpoint and
+                dynamically displays the JSON data, with loading
+                indicators and error handling.
+            </li>
+            <li>
+                To develop an industry-specific task manager supporting
+                Create, Read, Update and Delete (CRUD) operations, with
+                task data stored in Local Storage so it persists after
+                the page is refreshed.
+            </li>
+        </ul>
+    </section>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#manage">Manage</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#services">Services</a>
+        <a href="#finder">Finder</a>
+        <a href="#booking">Booking</a>
+        <a href="#live-data">Live Data</a>
+        <a href="#tasks">Tasks</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Home Section + Shipment Tracker -->
+    <section id="home" class="container">
+        <h2>Welcome to Our Gallery</h2>
+        <p>
+            Our logistics gallery showcases modern transportation,
+            warehouse management, shipping, and delivery operations.
+        </p>
+
+        <div class="tracker">
+            <h3>Live Shipment Tracker (Demo)</h3>
+            <div class="tracker-steps">
+                <div class="step"><span class="dot">1</span><span class="label">Order Placed</span></div>
+                <div class="step"><span class="dot">2</span><span class="label">Packed</span></div>
+                <div class="step"><span class="dot">3</span><span class="label">Shipped</span></div>
+                <div class="step"><span class="dot">4</span><span class="label">Out for Delivery</span></div>
+                <div class="step"><span class="dot">5</span><span class="label">Delivered</span></div>
+            </div>
+            <button id="track-btn" class="btn">Track Shipment</button>
+        </div>
+    </section>
+
+    <!-- Manage: add / update information -->
+    <section id="manage" class="container">
+        <h2>Manage Logistics Information</h2>
+
+        <div class="manager" id="manager">
+            <input id="item-title" type="text" maxlength="40"
+                   placeholder="Service title (e.g. Air Freight)" aria-label="Service title">
+            <input id="item-desc" type="text" maxlength="90"
+                   placeholder="Short description" aria-label="Short description">
+            <input id="item-details" type="text" maxlength="120"
+                   placeholder="Extra details (optional)" aria-label="Extra details">
+
+            <div class="manager-actions">
+                <button id="add-btn" class="btn">Add Item</button>
+                <button id="cancel-btn" class="btn btn-secondary hidden">Cancel</button>
+                <button id="ai-btn" class="btn btn-ai">✨ AI Suggest</button>
+                <span id="form-msg"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery (rendered with JavaScript) -->
+    <section id="gallery" class="container">
+        <h2>Our Logistics Gallery</h2>
+
+        <div class="toolbar">
+            <input id="search-input" type="text" placeholder="🔍 Search services..." aria-label="Search services">
+            <span id="item-count">0 items</span>
+        </div>
+
+        <div class="gallery" id="gallery-grid"></div>
+
+        <div id="empty-msg" class="hidden">
+            <p>No matching items found. Add a new one above!</p>
+        </div>
+    </section>
+
+    <!-- Services Section (collapsible) -->
+    <section id="services" class="container">
+        <h2>Our Services</h2>
+
+        <div class="service">
+            <button class="service-header">International Shipping <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                Air and sea freight with customs support to destinations worldwide.
+            </div></div>
+        </div>
+
+        <div class="service">
+            <button class="service-header">Warehouse Management <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                Secure storage, stock control and order fulfilment under one roof.
+            </div></div>
+        </div>
+
+        <div class="service">
+            <button class="service-header">Road Transportation <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                Full-truck and part-load services across cities and states.
+            </div></div>
+        </div>
+
+        <div class="service">
+            <button class="service-header">Package Delivery <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                Last-mile delivery with real-time tracking and proof of delivery.
+            </div></div>
+        </div>
+
+        <div class="service">
+            <button class="service-header">Supply Chain Management <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                End-to-end planning, sourcing, inventory and distribution support.
+            </div></div>
+        </div>
+    </section>
+
+    <!-- Freight Service Finder & Comparison Tool -->
+    <section id="finder" class="container">
+        <h2>Freight Service Finder &amp; Comparison</h2>
+        <p class="form-intro">Enter your shipment weight, filter the services and compare up to 3 options side by side.</p>
+
+        <div class="fs-controls">
+            <div class="fs-field fs-field-search">
+                <label for="finder-search">Search</label>
+                <input id="finder-search" type="text" placeholder="🔍 e.g. cold, container, urgent..." autocomplete="off">
+            </div>
+
+            <div class="fs-field">
+                <label for="finder-weight">Shipment weight (kg)</label>
+                <input id="finder-weight" type="number" min="1" max="50000" step="1" value="25" aria-describedby="finder-weight-msg">
+            </div>
+
+            <div class="fs-field">
+                <label for="finder-mode">Transport mode</label>
+                <select id="finder-mode">
+                    <option value="all">All modes</option>
+                    <option value="road">🚚 Road</option>
+                    <option value="sea">🚢 Sea</option>
+                    <option value="air">✈️ Air</option>
+                    <option value="rail">🚆 Rail</option>
+                    <option value="express">⚡ Express</option>
+                </select>
+            </div>
+
+            <div class="fs-field">
+                <label for="finder-sort">Sort by</label>
+                <select id="finder-sort">
+                    <option value="cost">Lowest cost</option>
+                    <option value="speed">Fastest delivery</option>
+                    <option value="name">Name (A–Z)</option>
+                </select>
+            </div>
+
+            <button type="button" id="finder-reset" class="btn btn-secondary btn-small">Reset</button>
+        </div>
+        <p id="finder-weight-msg" class="fs-weight-msg" role="alert"></p>
+
+        <p id="finder-count" class="fs-count" aria-live="polite"></p>
+
+        <div id="finder-grid" class="fs-grid"></div>
+
+        <div id="finder-empty" class="fs-empty hidden">
+            <p>No services match your search. Try a different keyword or reset the filters.</p>
+        </div>
+
+        <!-- Comparison panel (slides open when a service is selected) -->
+        <div id="compare-panel" class="fs-compare">
+            <div class="fs-compare-inner">
+                <div class="fs-compare-head">
+                    <h3>Compare Services</h3>
+                    <button type="button" id="compare-clear" class="btn btn-danger btn-small">Clear all</button>
+                </div>
+
+                <ul id="compare-chips" class="fs-chips"></ul>
+                <p id="compare-hint" class="fs-hint"></p>
+
+                <div id="compare-table-wrap" class="table-wrap hidden">
+                    <table id="compare-table"></table>
+                </div>
+
+                <p id="compare-verdict" class="fs-verdict hidden"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shipment Booking Form -->
+    <section id="booking" class="container">
+        <h2>Book a Shipment</h2>
+        <p class="form-intro">Fields marked <span class="req">*</span> are required.</p>
+
+        <div id="form-summary" class="form-alert hidden" role="alert"></div>
+
+        <form id="booking-form" novalidate>
+
+            <fieldset>
+                <legend>Customer Details</legend>
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label for="full-name">Full Name <span class="req">*</span></label>
+                        <input type="text" id="full-name" name="fullName"
+                               data-label="Full name"
+                               data-pattern-msg="Use letters, spaces and apostrophes only (no numbers)."
+                               required minlength="3" maxlength="50"
+                               pattern="[A-Za-z][A-Za-z .']*"
+                               placeholder="e.g. Ravi Kumar" autocomplete="name">
+                        <span class="error-msg" id="full-name-error"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">Email Address <span class="req">*</span></label>
+                        <input type="email" id="email" name="email"
+                               data-label="Email"
+                               required maxlength="60"
+                               placeholder="e.g. ravi@example.com" autocomplete="email">
+                        <span class="error-msg" id="email-error"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">Mobile Number <span class="req">*</span></label>
+                        <input type="tel" id="phone" name="phone"
+                               data-label="Mobile number"
+                               data-pattern-msg="Enter a 10-digit mobile number starting with 6, 7, 8 or 9."
+                               required maxlength="10"
+                               pattern="[6-9][0-9]{9}" inputmode="numeric"
+                               placeholder="e.g. 9876543210" autocomplete="tel">
+                        <span class="error-msg" id="phone-error"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company"
+                               data-label="Company name"
+                               maxlength="60"
+                               placeholder="Optional" autocomplete="organization">
+                        <span class="error-msg" id="company-error"></span>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Shipment Details</legend>
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label for="service-type">Service Type <span class="req">*</span></label>
+                        <select id="service-type" name="serviceType" data-label="Service type" required>
+                            <option value="" disabled selected>Select a service</option>
+                            <option value="Road Freight">Road Freight</option>
+                            <option value="Sea Freight">Sea Freight</option>
+                            <option value="Air Freight">Air Freight (max 500 kg)</option>
+                            <option value="Express Parcel">Express Parcel (max 30 kg)</option>
+                        </select>
+                        <span class="error-msg" id="service-type-error"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="weight">Total Weight (kg) <span class="req">*</span></label>
+                        <input type="number" id="weight" name="weight"
+                               data-label="Weight"
+                               required min="1" max="5000" step="0.5"
+                               placeholder="1 - 5000">
+                        <span class="error-msg" id="weight-error"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="packages">Number of Packages <span class="req">*</span></label>
+                        <input type="number" id="packages" name="packages"
+                               data-label="Number of packages"
+                               required min="1" max="100" step="1" value="1">
+                        <span class="error-msg" id="packages-error"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="pickup-date">Pickup Date <span class="req">*</span></label>
+                        <input type="date" id="pickup-date" name="pickupDate"
+                               data-label="Pickup date" required>
+                        <span class="error-msg" id="pickup-date-error"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="pickup-pin">Pickup PIN Code <span class="req">*</span></label>
+                        <input type="text" id="pickup-pin" name="pickupPin"
+                               data-label="PIN code"
+                               data-pattern-msg="Enter a valid 6-digit PIN code (cannot start with 0)."
+                               required maxlength="6"
+                               pattern="[1-9][0-9]{5}" inputmode="numeric"
+                               placeholder="e.g. 641005">
+                        <span class="error-msg" id="pickup-pin-error"></span>
+                    </div>
+
+                    <div class="field">
+                        <label for="destination">Destination City <span class="req">*</span></label>
+                        <input type="text" id="destination" name="destination"
+                               data-label="Destination city"
+                               data-pattern-msg="City name can contain letters and spaces only."
+                               required minlength="2" maxlength="40"
+                               pattern="[A-Za-z][A-Za-z ]*"
+                               placeholder="e.g. Chennai">
+                        <span class="error-msg" id="destination-error"></span>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Additional Information</legend>
+                <div class="form-grid">
+
+                    <div class="field full">
+                        <label for="instructions">Special Instructions</label>
+                        <textarea id="instructions" name="instructions"
+                                  data-label="Instructions"
+                                  rows="4" maxlength="200"
+                                  placeholder="e.g. Fragile goods, call before delivery"></textarea>
+                        <span class="char-count"><span id="char-count">0</span> / 200</span>
+                        <span class="error-msg" id="instructions-error"></span>
+                    </div>
+
+                    <div class="field full checkbox-field">
+                        <label class="checkbox-label" for="declaration">
+                            <input type="checkbox" id="declaration" name="declaration"
+                                   data-label="Declaration" required>
+                            <span>I confirm that the shipment contains no prohibited or hazardous items. <span class="req">*</span></span>
+                        </label>
+                        <span class="error-msg" id="declaration-error"></span>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="submit" id="submit-btn" class="btn">Submit Booking</button>
+                <button type="reset" class="btn btn-secondary">Clear Form</button>
+            </div>
+        </form>
+
+        <!-- Success message (shown after a valid submit) -->
+        <div id="form-success" class="form-success hidden" role="status">
+            <div class="success-check"><span>&#10004;</span></div>
+            <h3>Booking Confirmed!</h3>
+            <p id="success-text"></p>
+            <ul id="success-summary" class="summary-list"></ul>
+            <button type="button" id="book-again" class="btn">Book Another Shipment</button>
+        </div>
+    </section>
+
+    <!-- Live Logistics Data (API) -->
+    <section id="live-data" class="container">
+        <h2>Live Logistics Data</h2>
+        <p class="form-intro">Real-time information fetched from public APIs and displayed dynamically.</p>
+
+        <div class="api-controls">
+            <button id="load-weather" class="btn api-btn active">🌊 Port Weather</button>
+            <button id="load-rates" class="btn api-btn">💱 Currency Rates</button>
+            <button id="refresh-btn" class="btn btn-secondary">⟳ Refresh</button>
+            <button id="error-btn" class="btn btn-danger">⚠ Simulate Error</button>
+        </div>
+
+        <p id="api-source" class="api-source"></p>
+
+        <!-- Loading indicator -->
+        <div id="api-loading" class="api-loading hidden" role="status">
+            <div class="spinner"></div>
+            <p id="loading-text">Loading data...</p>
+        </div>
+
+        <!-- Error message -->
+        <div id="api-error" class="api-error hidden" role="alert">
+            <p class="api-error-title">⚠ Could not load data</p>
+            <p id="api-error-msg"></p>
+            <button id="retry-btn" class="btn">Try Again</button>
+        </div>
+
+        <!-- Result: summary cards + table -->
+        <div id="api-result" class="hidden">
+            <div id="api-stats" class="stats-grid"></div>
+
+            <div class="table-wrap">
+                <table id="api-table">
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <p id="api-updated" class="api-updated"></p>
+        </div>
+    </section>
+
+    <!-- Logistics Task Manager (CRUD + Local Storage) -->
+    <section id="tasks" class="container">
+        <h2>Logistics Task Manager</h2>
+        <p class="form-intro">Plan, track and update daily logistics tasks. Everything is saved automatically in this browser (Local Storage).</p>
+
+        <!-- Status summary -->
+        <ul id="task-summary" class="task-summary"></ul>
+
+        <!-- Create / Update form -->
+        <form id="task-form">
+            <fieldset>
+                <legend id="task-form-title">Add New Task</legend>
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label for="task-title">Task Title <span class="req">*</span></label>
+                        <input type="text" id="task-title" required minlength="3" maxlength="60"
+                               placeholder="e.g. Dispatch container to port">
+                    </div>
+
+                    <div class="field">
+                        <label for="task-assignee">Assigned To</label>
+                        <input type="text" id="task-assignee" maxlength="40"
+                               placeholder="e.g. Dispatch Team A">
+                    </div>
+
+                    <div class="field">
+                        <label for="task-category">Category <span class="req">*</span></label>
+                        <select id="task-category" required>
+                            <option value="" disabled selected>Select a category</option>
+                            <option value="Shipment Pickup">Shipment Pickup</option>
+                            <option value="Delivery Dispatch">Delivery Dispatch</option>
+                            <option value="Warehouse Stocking">Warehouse Stocking</option>
+                            <option value="Inventory Audit">Inventory Audit</option>
+                            <option value="Customs Documentation">Customs Documentation</option>
+                            <option value="Vehicle Maintenance">Vehicle Maintenance</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="task-priority">Priority <span class="req">*</span></label>
+                        <select id="task-priority" required>
+                            <option value="Low">Low</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="task-due">Due Date <span class="req">*</span></label>
+                        <input type="date" id="task-due" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="task-status">Status</label>
+                        <select id="task-status">
+                            <option value="Pending" selected>Pending</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+
+                    <div class="field full">
+                        <label for="task-notes">Notes</label>
+                        <textarea id="task-notes" rows="3" maxlength="150"
+                                  placeholder="Optional details, e.g. vehicle number, contact person"></textarea>
+                    </div>
+
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="submit" id="task-submit" class="btn">Add Task</button>
+                <button type="button" id="task-cancel" class="btn btn-secondary hidden">Cancel Edit</button>
+            </div>
+        </form>
+
+        <!-- Search, filter, bulk actions -->
+        <div class="task-toolbar">
+            <input type="text" id="task-search" placeholder="🔍 Search tasks..." aria-label="Search tasks">
+            <select id="task-filter" aria-label="Filter by status">
+                <option value="all">All statuses</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+            <button type="button" id="clear-completed" class="btn btn-danger btn-small">Clear Completed</button>
+            <span id="task-count" class="task-count"></span>
+        </div>
+
+        <!-- Task table -->
+        <div class="table-wrap">
+            <table id="task-table">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Category</th>
+                        <th>Assigned To</th>
+                        <th>Priority</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="task-body"></tbody>
+            </table>
+        </div>
+
+        <div id="task-empty" class="task-empty hidden">
+            <p id="task-empty-msg"></p>
+        </div>
+
+        <!-- Activity log -->
+        <h3 class="sub-heading">Recent Activity</h3>
+        <ul id="task-activity" class="activity-list"></ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container">
+        <h2>Contact Us</h2>
+        <p>Email: logistics@gmail.com</p>
+        <p>Phone: 9876543210</p>
+        <div class="center">
+            <button id="enquiry-btn" class="btn pulse">Send Enquiry</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Logistics Management. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

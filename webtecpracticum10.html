@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Image Gallery</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Notification container (toasts appear here) -->
+    <div id="toast-container" aria-live="polite"></div>
+
+    <!-- Header with AI network animation -->
+    <header>
+        <div class="ai-bg" id="ai-bg"></div>
+        <span class="ai-badge">AI-POWERED</span>
+        <h1>Logistics Management Gallery</h1>
+        <p>Explore Our Transportation and Delivery Services</p>
+        <p class="ai-tagline"><span id="typed"></span><span class="cursor">|</span></p>
+    </header>
+
+    <!-- Objective -->
+    <section class="objective">
+        <h2>Objectives</h2>
+        <ul>
+            <li>
+                To create an industry-specific image gallery using CSS Grid,
+                with responsive columns, consistent image dimensions,
+                and meaningful captions. The gallery displays logistics,
+                transportation, warehousing, shipping, and delivery
+                services in an attractive and user-friendly layout.
+            </li>
+            <li>
+                To develop an industry-oriented responsive webpage that
+                adapts to desktop, tablet, and mobile screen sizes
+                using CSS media queries.
+            </li>
+            <li>
+                To add meaningful animations that respond to user
+                interactions such as button clicks, information cards,
+                notifications, and opening or closing content sections.
+            </li>
+            <li>
+                To develop dynamic webpage interactions that add, modify,
+                display and remove industry-specific information using
+                DOM manipulation without reloading the webpage.
+            </li>
+        </ul>
+    </section>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#manage">Manage</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Home Section + Shipment Tracker -->
+    <section id="home" class="container">
+        <h2>Welcome to Our Gallery</h2>
+        <p>
+            Our logistics gallery showcases modern transportation,
+            warehouse management, shipping, and delivery operations.
+        </p>
+
+        <div class="tracker">
+            <h3>Live Shipment Tracker (Demo)</h3>
+            <div class="tracker-steps">
+                <div class="step"><span class="dot">1</span><span class="label">Order Placed</span></div>
+                <div class="step"><span class="dot">2</span><span class="label">Packed</span></div>
+                <div class="step"><span class="dot">3</span><span class="label">Shipped</span></div>
+                <div class="step"><span class="dot">4</span><span class="label">Out for Delivery</span></div>
+                <div class="step"><span class="dot">5</span><span class="label">Delivered</span></div>
+            </div>
+            <button id="track-btn" class="btn">Track Shipment</button>
+        </div>
+    </section>
+
+    <!-- Manage: add / update information -->
+    <section id="manage" class="container">
+        <h2>Manage Logistics Information</h2>
+
+        <div class="manager" id="manager">
+            <input id="item-title" type="text" maxlength="40"
+                   placeholder="Service title (e.g. Air Freight)" aria-label="Service title">
+            <input id="item-desc" type="text" maxlength="90"
+                   placeholder="Short description" aria-label="Short description">
+            <input id="item-details" type="text" maxlength="120"
+                   placeholder="Extra details (optional)" aria-label="Extra details">
+
+            <div class="manager-actions">
+                <button id="add-btn" class="btn">Add Item</button>
+                <button id="cancel-btn" class="btn btn-secondary hidden">Cancel</button>
+                <button id="ai-btn" class="btn btn-ai">✨ AI Suggest</button>
+                <span id="form-msg"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery (rendered with JavaScript) -->
+    <section id="gallery" class="container">
+        <h2>Our Logistics Gallery</h2>
+
+        <div class="toolbar">
+            <input id="search-input" type="text" placeholder="🔍 Search services..." aria-label="Search services">
+            <span id="item-count">0 items</span>
+        </div>
+
+        <div class="gallery" id="gallery-grid"></div>
+
+        <div id="empty-msg" class="hidden">
+            <p>No matching items found. Add a new one above!</p>
+        </div>
+    </section>
+
+    <!-- Services Section (collapsible) -->
+    <section id="services" class="container">
+        <h2>Our Services</h2>
+
+        <div class="service">
+            <button class="service-header">International Shipping <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                Air and sea freight with customs support to destinations worldwide.
+            </div></div>
+        </div>
+
+        <div class="service">
+            <button class="service-header">Warehouse Management <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                Secure storage, stock control and order fulfilment under one roof.
+            </div></div>
+        </div>
+
+        <div class="service">
+            <button class="service-header">Road Transportation <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                Full-truck and part-load services across cities and states.
+            </div></div>
+        </div>
+
+        <div class="service">
+            <button class="service-header">Package Delivery <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                Last-mile delivery with real-time tracking and proof of delivery.
+            </div></div>
+        </div>
+
+        <div class="service">
+            <button class="service-header">Supply Chain Management <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                End-to-end planning, sourcing, inventory and distribution support.
+            </div></div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container">
+        <h2>Contact Us</h2>
+        <p>Email: logistics@gmail.com</p>
+        <p>Phone: 9876543210</p>
+        <div class="center">
+            <button id="enquiry-btn" class="btn pulse">Send Enquiry</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Logistics Management. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Image Gallery</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Notification container (toasts appear here) -->
+    <div id="toast-container" aria-live="polite"></div>
+
+    <!-- Header -->
+    <header>
+        <h1>Logistics Management Gallery</h1>
+        <p>Explore Our Transportation and Delivery Services</p>
+    </header>
+
+    <!-- Objective -->
+    <section class="objective">
+        <h2>Objectives</h2>
+        <ul>
+            <li>
+                To create an industry-specific image gallery using CSS Grid,
+                with responsive columns, consistent image dimensions,
+                and meaningful captions. The gallery displays logistics,
+                transportation, warehousing, shipping, and delivery
+                services in an attractive and user-friendly layout.
+            </li>
+            <li>
+                To develop an industry-oriented responsive webpage that
+                adapts to desktop, tablet, and mobile screen sizes
+                using CSS media queries.
+            </li>
+            <li>
+                To add meaningful animations that respond to user
+                interactions such as button clicks, information cards,
+                notifications, and opening or closing content sections.
+            </li>
+        </ul>
+    </section>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Home Section + Shipment Tracker -->
+    <section id="home" class="container">
+        <h2>Welcome to Our Gallery</h2>
+        <p>
+            Our logistics gallery showcases modern transportation,
+            warehouse management, shipping, and delivery operations.
+        </p>
+
+        <div class="tracker">
+            <h3>Live Shipment Tracker (Demo)</h3>
+            <div class="tracker-steps">
+                <div class="step"><span class="dot">1</span><span class="label">Order Placed</span></div>
+                <div class="step"><span class="dot">2</span><span class="label">Packed</span></div>
+                <div class="step"><span class="dot">3</span><span class="label">Shipped</span></div>
+                <div class="step"><span class="dot">4</span><span class="label">Out for Delivery</span></div>
+                <div class="step"><span class="dot">5</span><span class="label">Delivered</span></div>
+            </div>
+            <button id="track-btn" class="btn">Track Shipment</button>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section id="gallery" class="container">
+        <h2>Our Logistics Image Gallery</h2>
+
+        <div class="gallery">
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1494412519320-aa613dfb7738"
+                     alt="Cargo ship transporting containers">
+                <h3>Cargo Shipping</h3>
+                <p>International goods transportation through cargo ships.</p>
+                <button class="btn details-btn">View Details</button>
+                <div class="card-details">
+                    <div class="card-details-inner">
+                        <span class="badge">Sea Freight</span>
+                        <p>Delivery time: 15–30 days<br>Best for: bulk and heavy cargo</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d"
+                     alt="Warehouse storage facility">
+                <h3>Warehouse Management</h3>
+                <p>Organized storage and management of products.</p>
+                <button class="btn details-btn">View Details</button>
+                <div class="card-details">
+                    <div class="card-details-inner">
+                        <span class="badge">Storage</span>
+                        <p>24/7 monitoring, inventory tracking and climate-controlled zones.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7"
+                     alt="Logistics delivery truck">
+                <h3>Road Transportation</h3>
+                <p>Safe and reliable transportation of goods by road.</p>
+                <button class="btn details-btn">View Details</button>
+                <div class="card-details">
+                    <div class="card-details-inner">
+                        <span class="badge">Road Freight</span>
+                        <p>Delivery time: 1–5 days<br>Best for: door-to-door, regional delivery</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088"
+                     alt="Delivery packages">
+                <h3>Package Delivery</h3>
+                <p>Fast and secure delivery of customer packages.</p>
+                <button class="btn details-btn">View Details</button>
+                <div class="card-details">
+                    <div class="card-details-inner">
+                        <span class="badge">Express</span>
+                        <p>Same-day and next-day options with live tracking and OTP delivery.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec"
+                     alt="Shipping containers">
+                <h3>Container Shipping</h3>
+                <p>Efficient movement of goods using shipping containers.</p>
+                <button class="btn details-btn">View Details</button>
+                <div class="card-details">
+                    <div class="card-details-inner">
+                        <span class="badge">FCL / LCL</span>
+                        <p>20ft and 40ft containers, sealed and tracked from port to port.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59"
+                     alt="Logistics distribution center">
+                <h3>Distribution Center</h3>
+                <p>Managing and distributing products to different locations.</p>
+                <button class="btn details-btn">View Details</button>
+                <div class="card-details">
+                    <div class="card-details-inner">
+                        <span class="badge">Hub</span>
+                        <p>Sorting, packing and dispatching to multiple cities every day.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Services Section (collapsible) -->
+    <section id="services" class="container">
+        <h2>Our Services</h2>
+
+        <div class="service">
+            <button class="service-header">International Shipping <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                Air and sea freight with customs support to destinations worldwide.
+            </div></div>
+        </div>
+
+        <div class="service">
+            <button class="service-header">Warehouse Management <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                Secure storage, stock control and order fulfilment under one roof.
+            </div></div>
+        </div>
+
+        <div class="service">
+            <button class="service-header">Road Transportation <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                Full-truck and part-load services across cities and states.
+            </div></div>
+        </div>
+
+        <div class="service">
+            <button class="service-header">Package Delivery <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                Last-mile delivery with real-time tracking and proof of delivery.
+            </div></div>
+        </div>
+
+        <div class="service">
+            <button class="service-header">Supply Chain Management <span class="arrow">&#9660;</span></button>
+            <div class="service-body"><div class="service-body-inner">
+                End-to-end planning, sourcing, inventory and distribution support.
+            </div></div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container">
+        <h2>Contact Us</h2>
+        <p>Email: logistics@gmail.com</p>
+        <p>Phone: 9876543210</p>
+        <div class="center">
+            <button id="enquiry-btn" class="btn pulse">Send Enquiry</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Logistics Management. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

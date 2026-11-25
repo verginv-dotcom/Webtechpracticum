@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Academic Guidance System</title>
+
+    <!-- Linking external CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Student Academic Performance & Guidance System</h1>
+        <p>A smart and effective platform for student success</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#register">Student Form</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="container">
+        <h2>Welcome to Our Application</h2>
+        <p>
+            This intelligent and useful application helps students
+            understand their academic performance and improve their
+            learning skills.
+        </p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2>About Our System</h2>
+        <p>
+            Our modern academic guidance system analyzes student marks
+            and provides personalized suggestions for better results.
+            It helps students identify their strong and weak subjects.
+        </p>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="container">
+        <h2>Our Features</h2>
+
+        <div class="features">
+            <div class="card">
+                <h3>Performance Analysis</h3>
+                <p>Provides accurate analysis of student marks.</p>
+            </div>
+
+            <div class="card">
+                <h3>Subject Guidance</h3>
+                <p>Identifies strong and weak subjects.</p>
+            </div>
+
+            <div class="card">
+                <h3>Improvement Tips</h3>
+                <p>Gives useful suggestions for better learning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Registration Form -->
+    <section id="register" class="container">
+        <h2>Student Registration Form</h2>
+
+        <form>
+            <label for="name">Student Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter password" required>
+
+            <label for="regno">Register Number:</label>
+            <input type="number" id="regno" placeholder="Enter register number" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required>
+
+            <label>Gender:</label>
+            <div class="option">
+                <input type="radio" name="gender" value="Male" required> Male
+                <input type="radio" name="gender" value="Female"> Female
+            </div>
+
+            <label>Choose Subjects:</label>
+            <div class="option">
+                <input type="checkbox" name="subject" value="C"> C Programming
+                <input type="checkbox" name="subject" value="Java"> Java
+                <input type="checkbox" name="subject" value="Python"> Python
+            </div>
+
+            <label for="year">Academic Year:</label>
+            <select id="year" required>
+                <option value="">Select Year</option>
+                <option>First Year</option>
+                <option>Second Year</option>
+                <option>Third Year</option>
+                <option>Final Year</option>
+            </select>
+
+            <label for="goals">Academic Goals:</label>
+            <textarea id="goals" rows="4"
+                placeholder="Enter your academic goals"></textarea>
+
+            <label for="marksheet">Upload Marksheet:</label>
+            <input type="file" id="marksheet" accept=".pdf,.jpg,.png">
+
+            <div class="buttons">
+                <button type="submit">Register</button>
+                <button type="reset" class="reset">Reset</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <h2>Contact Us</h2>
+        <p>Email: studentguidance@gmail.com</p>
+        <p>Phone: 9876543210</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Student Academic Guidance System. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
